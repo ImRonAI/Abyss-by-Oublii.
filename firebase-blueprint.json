@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "ClientInquiry": {
+      "title": "Client Inquiry",
+      "description": "An inquiry from a potential client captured via the intake form.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Client's Name" },
+        "email": { "type": "string", "format": "email", "description": "Client's Email" },
+        "company": { "type": "string", "description": "Client's Company Name" },
+        "projectTypes": { "type": "array", "items": { "type": "string" }, "description": "Selected project types" },
+        "brandName": { "type": "string", "description": "Brand Name" },
+        "brandDescription": { "type": "string", "description": "Brand Description" },
+        "targetAudience": { "type": "string", "description": "Target Audience" },
+        "colorPreferences": { "type": "array", "items": { "type": "string" }, "description": "Hex codes of preferred colors" },
+        "typography": { "type": "string", "description": "Typography preference" },
+        "vision": { "type": "string", "description": "Project Vision" },
+        "desiredFeel": { "type": "array", "items": { "type": "string" }, "description": "Selected desired feels" },
+        "projectStory": { "type": "string", "description": "Project Story" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" }
+      },
+      "required": ["name", "email", "company", "projectTypes", "brandName", "vision", "desiredFeel", "createdAt"]
+    }
+  },
+  "firestore": {
+    "inquiries": {
+      "schema": { "$ref": "#/entities/ClientInquiry" },
+      "description": "Stores client inquiries."
+    }
+  }
+}

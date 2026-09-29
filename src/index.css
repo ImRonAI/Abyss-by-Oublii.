@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  :root {
+    --background: #fbf9f6; /* Warm Alabaster Cream */
+    --foreground: #1a1917; /* Soft Rich Obsidian Charcoal */
+    --primary: #1a1917;
+    --primary-foreground: #fbf9f6;
+    --muted: #f3f1ec; /* Warm Linen */
+    --muted-foreground: #7a756b; /* Muted Taupe */
+    --border: #e6e2da; /* Fine Linen Line */
+    --input: #e6e2da;
+    --ring: #1a1917;
+    --destructive: #af3a3a;
+    --destructive-foreground: #fbf9f6;
+  }
+
+  .dark {
+    --background: #0c0b0a; /* Premium Slate Coffee Black */
+    --foreground: #f4f3ef; /* Warm Luxurious Paper/Ivory */
+    --primary: #f4f3ef;
+    --primary-foreground: #0c0b0a;
+    --muted: #1a1918; /* Warm Dark Charcoal Slate */
+    --muted-foreground: #9a9488; /* Sophisticated Warm Gold-Gray */
+    --border: #252422; /* Fine Dark Obsidian Divider */
+    --input: #252422;
+    --ring: #f4f3ef;
+    --destructive: #7f2222;
+    --destructive-foreground: #f4f3ef;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
